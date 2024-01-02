@@ -1,11 +1,23 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
+
+    state = {
+        searchQuery: ""
+    }
+
     render() {
         return (
-            <div>
-                <h1>Search Bar</h1>
-            </div>
+            <form>
+                <div className='form-row mb-5'>
+                    <div className='col-12'>
+                        <input
+                            onChange={(event) => this.setState({ searchQuery: event.target.value })}
+                            type="text" className="form-control" placeholder="Search a movie"
+                            value={this.state.searchQuery} />
+                    </div>
+                </div>
+            </form>
         );
     }
 }
