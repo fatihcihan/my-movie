@@ -37,9 +37,13 @@ class App extends React.Component {
       m => m.id !== movie.id
     );
 
-    this.setState({
+    /*  this.setState({     // If we didn't have any data
+       movies: newMovieList
+     }); */
+
+    this.setState(state => ({     // We take the existing state as a parameter
       movies: newMovieList
-    });
+    }))
   }
 
   render() {
