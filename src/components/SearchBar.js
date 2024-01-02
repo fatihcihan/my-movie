@@ -6,9 +6,14 @@ class SearchBar extends React.Component {
         searchQuery: ""
     }
 
+    handleFormSubmit = (event) => {
+        event.preventDefault();     // we stopped the default behavior
+    }
+
     render() {
+        console.log(typeof handleFormSubmit);
         return (
-            <form>
+            <form onSubmit={this.handleFormSubmit}>
                 <div className='form-row mb-5'>
                     <div className='col-12'>
                         <input
