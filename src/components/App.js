@@ -1,6 +1,6 @@
 import React from 'react';
-
-
+import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 
 class App extends React.Component {
 
@@ -35,9 +35,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        Hello react
-      </div >
+      <div className='container'>
+        <div className='row'>
+          <div className='col-lg-12'>
+            <SearchBar />
+          </div>
+        </div>
+        <MovieList />
+      </div>
     );
   }
 }
