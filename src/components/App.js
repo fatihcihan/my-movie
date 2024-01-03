@@ -55,7 +55,7 @@ class App extends React.Component {
   render() {
     let filteredMovies = this.state.movies.filter(
       (movie) => {
-        return movie.name.indexOf(this.state.searchQuery) !== -1  // If not found, it returns -1
+        return movie.name.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1  // If not found, it returns -1
       }
     )
     return (
