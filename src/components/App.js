@@ -24,14 +24,32 @@ class App extends React.Component {
     this.setState({ movies: response.data });
   }
 
-  deleteMovie = (movie) => {
+  // deleteMovie = (movie) => {
+  //   const newMovieList = this.state.movies.filter(
+  //     m => m.id !== movie.id
+  //   );
+
+  //   /*  this.setState({     // If we didn't have any data
+  //      movies: newMovieList
+  //    }); */
+
+  //   this.setState(state => ({     // We take the existing state as a parameter
+  //     movies: newMovieList
+  //   }))
+  // }
+
+
+
+  /* Fetch api */
+  deleteMovie = async (movie) => {
+    const baseURL = `http://localhost:3002/movies/${movie.id}`;
+    await fetch(baseURL, {
+      method: "DELETE"
+    });
+
     const newMovieList = this.state.movies.filter(
       m => m.id !== movie.id
     );
-
-    /*  this.setState({     // If we didn't have any data
-       movies: newMovieList
-     }); */
 
     this.setState(state => ({     // We take the existing state as a parameter
       movies: newMovieList
