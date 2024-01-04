@@ -20,7 +20,7 @@ class App extends React.Component {
   } */
 
   async componentDidMount() {
-    const response = await axios.get("http://localhost:3002/movies");
+    const response = await axios.get("http://localhost:3002/movies/")
     this.setState({ movies: response.data });
   }
 
@@ -38,15 +38,25 @@ class App extends React.Component {
   //   }))
   // }
 
-
-
   /* Fetch api */
-  deleteMovie = async (movie) => {
+  /* deleteMovie = async (movie) => {
     const baseURL = `http://localhost:3002/movies/${movie.id}`;
     await fetch(baseURL, {
       method: "DELETE"
     });
 
+    const newMovieList = this.state.movies.filter(
+      m => m.id !== movie.id
+    );
+
+    this.setState(state => ({     // We take the existing state as a parameter
+      movies: newMovieList
+    }))
+  } */
+
+  /* Axios */
+  deleteMovie = async (movie) => {
+    axios.delete(`http://localhost:3002/movies/${movie.id}`);
     const newMovieList = this.state.movies.filter(
       m => m.id !== movie.id
     );
