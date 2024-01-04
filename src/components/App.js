@@ -9,13 +9,17 @@ class App extends React.Component {
     searchQuery: ""
   }
 
+  /*  async componentDidMount() {
+     const baseURL = "http://localhost:3002/movies";
+     const response = await fetch(baseURL);  // Fetch is promise-based and returns a promise to us
+     console.log(response);
+     const data = await response.json();
+     console.log(data);
+     this.setState({ movies: data });
+   } */
+
   async componentDidMount() {
-    const baseURL = "http://localhost:3002/movies";
-    const response = await fetch(baseURL);  // Fetch is promise-based and returns a promise to us
-    console.log(response);
-    const data = await response.json();
-    console.log(data);
-    this.setState({ movies: data });
+
   }
 
   deleteMovie = (movie) => {
