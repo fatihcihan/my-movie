@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import axios from 'axios';
 
 class App extends React.Component {
 
@@ -9,17 +10,18 @@ class App extends React.Component {
     searchQuery: ""
   }
 
-  /*  async componentDidMount() {
-     const baseURL = "http://localhost:3002/movies";
-     const response = await fetch(baseURL);  // Fetch is promise-based and returns a promise to us
-     console.log(response);
-     const data = await response.json();
-     console.log(data);
-     this.setState({ movies: data });
-   } */
+  /* async componentDidMount() {
+    const baseURL = "http://localhost:3002/movies";
+    const response = await fetch(baseURL);  // Fetch is promise-based and returns a promise to us
+    console.log(response);
+    const data = await response.json();
+    console.log(data);
+    this.setState({ movies: data });
+  } */
 
   async componentDidMount() {
-
+    const response = await axios.get("http://localhost:3002/movies");
+    this.setState({ movies: response.data });
   }
 
   deleteMovie = (movie) => {
