@@ -13,9 +13,7 @@ class App extends React.Component {
   /* async componentDidMount() {
     const baseURL = "http://localhost:3002/movies";
     const response = await fetch(baseURL);  // Fetch is promise-based and returns a promise to us
-    console.log(response);
     const data = await response.json();
-    console.log(data);
     this.setState({ movies: data });
   } */
 
@@ -67,7 +65,6 @@ class App extends React.Component {
   }
 
   searchMovie = (event) => {
-    // console.log(event.target.value);
     this.setState({ searchQuery: event.target.value })
   }
 
