@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import axios from 'axios';
+import AddMovie from './AddMovie';
 
 class App extends React.Component {
 
@@ -84,6 +85,8 @@ class App extends React.Component {
         <MovieList
           movies={filteredMovies}
           deleteMovieProp={this.deleteMovie} />
+            <AddMovie />
+
       </div>
     );
   }
