@@ -70,6 +70,13 @@ class App extends React.Component {
     this.setState({ searchQuery: event.target.value })
   }
 
+  addMovie = async (movie) => {
+    await axios.post(`http://localhost:3002/movies/`, movie);
+    this.setState(state => ({
+      movies: state.movies.concat([movie])
+    }))
+  }
+
   render() {
     let filteredMovies = this.state.movies.filter(
       (movie) => {
@@ -79,6 +86,7 @@ class App extends React.Component {
     return (
       <Router>
         <Routes>
+
           <Route path="/" element={
             <React.Fragment>
               <div className='container'>
@@ -93,7 +101,13 @@ class App extends React.Component {
               </div>
             </React.Fragment>}>
           </Route>
-          <Route path="add" element={<AddMovie />} />
+
+          <Route path="add" element={
+            <AddMovie
+              onAddMovie={(movie) => { this.addMovie(movie) }}
+            />}>
+          </Route>
+
         </Routes>
       </Router>
     );
