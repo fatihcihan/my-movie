@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MovieList = (props) => {
 
@@ -20,6 +21,10 @@ const MovieList = (props) => {
                             <p className="card-text">{truncateOverview(movie.overview, 50)}</p>
                             <div className="d-flex justify-content-between align-items-center">
                                 <button type="button" onClick={() => props.deleteMovieProp(movie)} className="btn btn-md btn-outline-danger">Delete</button>
+                                <Link type="button"
+                                    className="btn btn-md btn-outline-primary"
+                                    to={`edit/${movie.id}`}>
+                                    Edit</Link>
                                 <h2><span className="badge bg-secondary">{movie.rating}</span></h2>
                             </div>
                         </div>
