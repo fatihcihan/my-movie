@@ -2,10 +2,12 @@ import React from 'react';
 
 const MovieList = (props) => {
 
-    /* function handleClick(event) {
-        console.log(event);
-        // console.log('clicked');
-    } */
+
+    const truncateOverview = (string, maxLength) => {
+        if (!string) return null;
+        if (string.length <= maxLength) return string;
+        return `${string.substring(0, maxLength)}...`;
+    }
 
     return (
         <div className="row">
@@ -15,7 +17,7 @@ const MovieList = (props) => {
                         <img src={movie.imageURL} className="card-img-top" alt="" />
                         <div className="card-body">
                             <h5 className="card-title">{movie.name}</h5>
-                            <p className="card-text">{movie.overview}</p>
+                            <p className="card-text">{truncateOverview(movie.overview, 50)}</p>
                             <div className="d-flex justify-content-between align-items-center">
                                 <button type="button" onClick={() => props.deleteMovieProp(movie)} className="btn btn-md btn-outline-danger">Delete</button>
                                 <h2><span className="badge bg-secondary">{movie.rating}</span></h2>
