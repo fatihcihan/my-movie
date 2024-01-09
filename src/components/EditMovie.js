@@ -31,16 +31,29 @@ const EditMovie = () => {
 
     const onInputChange = (e) => {
         const { name, value } = e.target;
-        console.log(name, 'x');
         setMovie(prevMovie => ({
             ...prevMovie,
             [name]: value
         }));
     }
 
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        const { name, rating, overview, imageURL } = movie;
+        // console.log(id);
+        const updatedMovie = {
+            name: name,
+            rating: rating,
+            overview: overview,
+            imageURL: imageURL
+        }
+
+
+    }
+
     return (
         <div className="container" >
-            <form className="mt-5">
+            <form className="mt-5" onSubmit={handleFormSubmit}>
                 <input className="form-control" id="disabledInput" type="text" placeholder="Edit The Form To Update A Movie.." disabled />
                 <div className="form-row">
                     <div className="form-group col-md-10">
