@@ -47,6 +47,11 @@ const EditMovie = () => {
          // navigate('/');
      } */
 
+    const onInputChange = (e) => {
+        console.log(e.target.name);
+        console.log(e.target.value);
+    }
+
 
     return (
 
@@ -59,7 +64,8 @@ const EditMovie = () => {
                         <input type="text"
                             className="form-control"
                             name="name"
-                            value={movie.name} />
+                            value={movie.name}
+                            onChange={onInputChange} />
                     </div>
                     <div className="form-group col-md-2">
                         <label htmlFor="inputRating">Rating</label>
@@ -67,7 +73,8 @@ const EditMovie = () => {
                             type="text"
                             className="form-control"
                             name="rating"
-                            value={movie.rating} />
+                            value={movie.rating}
+                            onChange={onInputChange} />
                     </div>
                 </div>
                 <div className="form-row">
@@ -77,7 +84,8 @@ const EditMovie = () => {
                             type="text"
                             className="form-control"
                             name="imageURL"
-                            value={movie.imageURL} />
+                            value={movie.imageURL}
+                            onChange={onInputChange} />
                     </div>
                 </div>
                 <div className="form-row">
@@ -86,7 +94,8 @@ const EditMovie = () => {
                         <textarea
                             className="form-control"
                             name="overview" rows="5"
-                            value={movie.overview}></textarea>
+                            value={movie.overview}
+                            onChange={onInputChange}></textarea>
                     </div>
                 </div>
                 <input type="submit"
