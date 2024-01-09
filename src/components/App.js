@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import EditMovie from './EditMovie';
 import axios from 'axios';
 import AddMovie from './AddMovie';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -111,6 +112,8 @@ class App extends React.Component {
               onAddMovie={(movie) => { this.addMovie(movie) }}
             />}>
           </Route>
+
+          <Route path="edit/:id" element={<EditMovie />}/>                 {/* :id -> dynamic parameter  */}
 
         </Routes>
       </Router>
