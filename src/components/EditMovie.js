@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const EditMovie = () => {
-
-    /*   state = {
-          name: "",
-          rating: "",
-          overview: "",
-          imageUrl: ""
-      } */
 
     const [movie, setMovie] = useState({
         name: "",
@@ -18,17 +11,12 @@ const EditMovie = () => {
         imageURL: ""
     });
 
-    console.log(movie);
-
     const { id } = useParams();
-    console.log(id);
 
     useEffect(() => {
         const getMovie = async () => {
             const response = await axios.get(`http://localhost:3002/movies/${id}`);
-            console.log(response, 'res');
             const movie = response.data;
-            console.log(movie, 'movie');
 
             setMovie({
                 name: movie.name,
@@ -38,23 +26,19 @@ const EditMovie = () => {
             })
         };
         getMovie();
-    }, [id])
+    }, [id]);
 
-    // onSubmit={this.handleFormSubmit}
-
-    /*  handleFormSubmit = (e) => {
-         e.preventDefault();
-         // navigate('/');
-     } */
 
     const onInputChange = (e) => {
-        console.log(e.target.name);
-        console.log(e.target.value);
+        const { name, value } = e.target;
+        console.log(name, 'x');
+        setMovie(prevMovie => ({
+            ...prevMovie,
+            [name]: value
+        }));
     }
 
-
     return (
-
         <div className="container" >
             <form className="mt-5">
                 <input className="form-control" id="disabledInput" type="text" placeholder="Edit The Form To Update A Movie.." disabled />
@@ -105,6 +89,5 @@ const EditMovie = () => {
         </div >
     );
 }
-
 
 export default EditMovie;
