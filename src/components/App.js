@@ -113,7 +113,13 @@ class App extends React.Component {
             />}>
           </Route>
 
-          <Route path="edit/:id" element={<EditMovie />}/>                 {/* :id -> dynamic parameter  */}
+          <Route path="edit/:id" element={
+            <EditMovie
+              onEditMovie={(id, movie) => { this.editMovie(id, movie) }}
+            />}>
+          </Route>
+
+          {/* <Route path="edit/:id" element={<EditMovie />} /> */}                 {/* :id -> dynamic parameter  */}
 
         </Routes>
       </Router>
