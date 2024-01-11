@@ -78,6 +78,15 @@ class App extends React.Component {
     }))
   }
 
+  editMovie = async (id, updatedMovie) => {
+    await axios.put(`http://localhost:3002/movies/${id}`, updatedMovie);
+    console.log('2');
+    // console.log(id, updatedMovie);
+    /*  this.setState(state => ({
+       movies: state.movies.concat([movie])
+     })) */
+  }
+
   render() {
     let filteredMovies = this.state.movies.filter(
       (movie) => {
