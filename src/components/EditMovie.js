@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const EditMovie = (props) => {
@@ -12,6 +12,7 @@ const EditMovie = (props) => {
     });
 
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getMovie = async () => {
@@ -50,6 +51,7 @@ const EditMovie = (props) => {
         // console.log(props);
         console.log('1');
         props.onEditMovie(id, updatedMovie);
+        navigate('/');
         // console.log(updatedMovie, 'edit movie comp. ');
 
     }
