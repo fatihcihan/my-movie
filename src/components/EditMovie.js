@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const EditMovie = () => {
+const EditMovie = (props) => {
 
     const [movie, setMovie] = useState({
         name: "",
@@ -47,7 +47,10 @@ const EditMovie = () => {
             overview: overview,
             imageURL: imageURL
         }
-
+        // console.log(props);
+        console.log('1');
+        props.onEditMovie(id, updatedMovie);
+        // console.log(updatedMovie, 'edit movie comp. ');
 
     }
 
@@ -97,7 +100,7 @@ const EditMovie = () => {
                 </div>
                 <input type="submit"
                     className="btn btn-danger btn-block"
-                    value="Add Movie" />
+                    value="Edit Movie" />
             </form>
         </div >
     );
