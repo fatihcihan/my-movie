@@ -21,7 +21,13 @@ class App extends React.Component {
   } */
 
   async componentDidMount() {
-    const response = await axios.get("http://localhost:3002/movies/")
+    this.getMovies();
+  }
+
+  
+
+  async getMovies() {
+    const response = await axios.get("http://localhost:3002/movies/");
     this.setState({ movies: response.data });
   }
 
@@ -75,12 +81,14 @@ class App extends React.Component {
     await axios.post(`http://localhost:3002/movies/`, movie);
     this.setState(state => ({
       movies: state.movies.concat([movie])
-    }))
+    }));
+    this.getMovies();
   }
 
   editMovie = async (id, updatedMovie) => {
     await axios.put(`http://localhost:3002/movies/${id}`, updatedMovie);
-    console.log('2');
+    this.getMovies();
+    // console.log('2');
     // console.log(id, updatedMovie);
     /*  this.setState(state => ({
        movies: state.movies.concat([movie])
