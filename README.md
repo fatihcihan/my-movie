@@ -43,3 +43,11 @@
  - **Bootstrap:** A popular CSS framework for building responsive and mobile-first websites.
  - **Form Serialize:** A library for serializing form data into a URL-encoded string.
  - **JSON Server:** A tool for creating a fake REST API server using a JSON file as a data source.
+
+## Project Setup
+### To start using the app, follow these steps;
+ 1. Clone or download the project.
+ 2. Install the necessary dependencies: **"npm install"**
+ 3. Start JSON Server: **"npx json-server --watch src/api/movies.json --port 3001"**
+ 4. Start the project: **"npm start"**
+ 5. View the application by navigating to http://localhost:3000 in your browser.
