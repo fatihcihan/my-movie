@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const EditMovie = (props) => {
-
     const [movie, setMovie] = useState({
         name: "",
         rating: "",
@@ -41,19 +40,15 @@ const EditMovie = (props) => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const { name, rating, overview, imageURL } = movie;
-        // console.log(id);
         const updatedMovie = {
             name: name,
             rating: rating,
             overview: overview,
             imageURL: imageURL
         }
-        // console.log(props);
         console.log('1');
         props.onEditMovie(id, updatedMovie);
         navigate('/');
-        // console.log(updatedMovie, 'edit movie comp. ');
-
     }
 
     return (
